@@ -1,4 +1,12 @@
 class ProductList extends React.Component {
+  handleProductUpVote(productId) {
+    console.log(productId + ' was upvoted.');
+    }
+  
+    handleUpVote() {
+      this.props.onVote(this.props.id);
+      }
+      
   render() {
     const products = Seed.products.sort((a, b) => (
       b.votes - a.votes
@@ -13,6 +21,7 @@ class ProductList extends React.Component {
         votes={product.votes}
         submitterAvatarUrl={product.submitterAvatarUrl}
         productImageUrl={product.productImageUrl}
+        onVote={this.handleProductUpVote}
       />
     ));
 
